@@ -27,7 +27,7 @@
       <div id="target">5.000</div>
       <div id="result" class="standby">0.000</div>
       <div id="buttons">
-        <div id="start">Start</div>
+        <!-- <div id="start">Start</div> -->
         <div id="stop">Stop</div>
       </div>
     </div>
@@ -55,17 +55,43 @@
             <a href="" target="_blank" rel="noopener noreferrer">ツイートする</a>
           </div>
           <div class="modal-footer">
-            <button id="start2" type="button" class="btn btn-secondary">はじめる</button>
+            <button id="start" type="button" class="btn btn-secondary">はじめる</button>
           </div>
         </div>
       </div>
     </div>
+    <!-- ReStart用Modalはじまり -->
+    <div
+      class="modal fade modal-dialog modal-fullscreen-sm-down"
+      id="resultModal"
+      tabindex="-1"
+      aria-labelledby="resultModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="resultModalLabel"></h5>
+          </div>
+          <div class="modal-body" id="resultmodalBody"></div>
+          <div class="modal-footer">
+            <button id="reload" type="button" class="btn btn-secondary" onclick="location.reload()">
+              もう一度挑戦する
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ReStart用Modal終わり -->
   </body>
-  <!-- Start用Modal終わり -->
   <script>
     // 開始時のモーダル
     const startDialog = document.getElementById('startModal')
-    const startButton = document.getElementById('start2')
+    const startButton = document.getElementById('start')
+    // ストップボタン
+    const stopButton = document.querySelector('#stop')
+
+    console.log(stopButton)
     window.onload = () => {
       startDialog.tabIndex = '-1'
       startDialog.ariaModal = 'true'
@@ -73,6 +99,66 @@
       startDialog.style = 'display: block;'
       startDialog.classList.add('show')
     }
+
+    // 結果時のモーダル
+    const resultDialog = document.getElementById('resultModal')
+    const resultmodalTitle = document.getElementById('resultModalLabel')
+    const resultmodalBody = document.getElementById('resultmodalBody')
+
+    // 結果のテキスト
+    const resultText = document.getElementById('text')
+
+    // モーダルの表示に関する関数
+    const modal = function () {
+      resultDialog.tabIndex = '-1'
+      resultDialog.ariaModal = 'true'
+      resultDialog.role = 'dialog'
+      resultDialog.style = 'display: block;'
+      resultDialog.classList.add('show')
+      resultDialog.setAttribute('aria-hidden', 'true')
+    }
+
+    // スタートボタン
+    startButton.addEventListener('click', function () {
+      startDialog.remove()
+      progress = 0
+    })
+
+    stopButton.addEventListener('click', function () {
+      clearInterval(stop)
+      // 結果モーダル出力
+      setTimeout(function () {
+        modal()
+      }, 3000)
+    })
+
+    // 結果モーダル出力
+    setTimeout(function () {
+      modal()
+      if (syokuninMax <= progress) {
+        resultmodalTitle.innerText = '焦げ臭い...'
+        resultmodalBody.innerHTML =
+          '<p>焼き過ぎじゃない？??</p>\
+      <p>さんまの気持ちになってもう一回やってみて!!</p>'
+      } else if (namaMax < progress && progress < syokuninMax) {
+        resultmodalTitle.innerText = '完璧！！'
+        resultmodalBody.innerHTML =
+          "<p>もしかして...職人？？？</p>\
+      <p>並び立つものがいないくらいさんまを焼く技術に溢れてるかも...</p>\
+      <p>さんま焼き職人に転職しよう！</p>\
+      <a href='https://twitter.com/intent/tweet?&text=さんまを完璧に焼ける自信があります。%0a%0aこれはさんまを焼くだけのアプリです。%0aパソコンから遊んでね。%0a%23さんま%0a%23さんまを焼く%0a%23さんまを焼くだけのアプリ%0a&url=https://gifted-curran-aecac2.netlify.app/'\
+      target='_blank' rel='noopener noreferrer'>ツイートする</a>"
+      } else {
+        resultmodalTitle.innerText = '生焼けやないかい!'
+        resultmodalBody.innerHTML =
+          '<p>生だよ！</p>\
+      <p>お腹壊すよ！</p>\
+      <p>せっかちがすぎるよ!！</p>\
+      <p>さんまをよく見て、もう一度やってみよう。</p><p>ワンチャンあるかも。</p>'
+      }
+    }, 3000)
+
+    // タイマー
     ;(function () {
       'use strict'
 
