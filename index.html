@@ -73,7 +73,7 @@
           <div class="modal-header">
             <h5 class="modal-title" id="resultModalLabel"></h5>
           </div>
-          <div class="modal-body" id="resultmodalBody"></div>
+          <div class="modal-body" id="resultBody"></div>
           <div class="modal-footer">
             <button id="reload" type="button" class="btn btn-secondary" onclick="location.reload()">
               もう一度挑戦する
@@ -91,6 +91,13 @@
     // ストップボタン
     const stopButton = document.querySelector('#stop')
 
+    // 結果時のモーダル
+    const resultDialog = document.getElementById('resultModal')
+    const resultTitle = document.getElementById('resultModalLabel')
+    const resultBody = document.getElementById('resultBody')
+
+    var diff = 0
+
     console.log(stopButton)
     window.onload = () => {
       startDialog.tabIndex = '-1'
@@ -99,11 +106,6 @@
       startDialog.style = 'display: block;'
       startDialog.classList.add('show')
     }
-
-    // 結果時のモーダル
-    const resultDialog = document.getElementById('resultModal')
-    const resultmodalTitle = document.getElementById('resultModalLabel')
-    const resultmodalBody = document.getElementById('resultmodalBody')
 
     // 結果のテキスト
     const resultText = document.getElementById('text')
@@ -135,28 +137,17 @@
     // 結果モーダル出力
     setTimeout(function () {
       modal()
-      if (syokuninMax <= progress) {
-        resultmodalTitle.innerText = '焦げ臭い...'
-        resultmodalBody.innerHTML =
-          '<p>焼き過ぎじゃない？??</p>\
-      <p>さんまの気持ちになってもう一回やってみて!!</p>'
-      } else if (namaMax < progress && progress < syokuninMax) {
-        resultmodalTitle.innerText = '完璧！！'
-        resultmodalBody.innerHTML =
-          "<p>もしかして...職人？？？</p>\
-      <p>並び立つものがいないくらいさんまを焼く技術に溢れてるかも...</p>\
-      <p>さんま焼き職人に転職しよう！</p>\
-      <a href='https://twitter.com/intent/tweet?&text=さんまを完璧に焼ける自信があります。%0a%0aこれはさんまを焼くだけのアプリです。%0aパソコンから遊んでね。%0a%23さんま%0a%23さんまを焼く%0a%23さんまを焼くだけのアプリ%0a&url=https://gifted-curran-aecac2.netlify.app/'\
-      target='_blank' rel='noopener noreferrer'>ツイートする</a>"
+      if (diff > -1.0 && diff < 1.0) {
+        resultTitle.innerText = '完璧'
+        resultBody.innerHTML = '完璧なできです。'
+      } else if (diff > -2.0 && diff < 2.0) {
+        resultTitle.innerText = '完璧！！'
+        resultBody.innerHTML = '惜しいです・'
       } else {
-        resultmodalTitle.innerText = '生焼けやないかい!'
-        resultmodalBody.innerHTML =
-          '<p>生だよ！</p>\
-      <p>お腹壊すよ！</p>\
-      <p>せっかちがすぎるよ!！</p>\
-      <p>さんまをよく見て、もう一度やってみよう。</p><p>ワンチャンあるかも。</p>'
+        resultTitle.innerText = '全然やー'
+        resultBody.innerHTML = 'もう一回チャレンジしてみるべー'
       }
-    }, 3000)
+    }, 11000)
 
     // タイマー
     ;(function () {
@@ -182,7 +173,7 @@
 
       stop.addEventListener('click', function () {
         var elapsedTime
-        var diff
+
         if (isStarted === false) {
           return
         }
