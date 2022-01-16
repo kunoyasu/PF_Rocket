@@ -74,25 +74,19 @@
         </div>
       </div>
     </div>
-    <!-- ReStart用Modal終わり -->
   </body>
   <script>
+    // ストップボタン
+    const stopButton = document.querySelector('#stop')
     // 開始時のモーダル
     const startDialog = document.getElementById('startModal')
     const startButton = document.getElementById('start')
-    // ストップボタン
-    const stopButton = document.querySelector('#stop')
-
     // 結果時のモーダル
     const resultDialog = document.getElementById('resultModal')
     const resultTitle = document.getElementById('resultModalLabel')
     const resultBody = document.getElementById('resultBody')
 
-    var diff = 0
-
-    console.log(stopButton)
     window.onload = () => {
-      startDialog.tabIndex = '-1'
       startDialog.ariaModal = 'true'
       startDialog.role = 'dialog'
       startDialog.style = 'display: block;'
@@ -102,9 +96,8 @@
     // 結果のテキスト
     const resultText = document.getElementById('text')
 
-    // モーダルの表示に関する関数
+    // モーダルの表示の設定
     const modal = function () {
-      resultDialog.tabIndex = '-1'
       resultDialog.ariaModal = 'true'
       resultDialog.role = 'dialog'
       resultDialog.style = 'display: block;'
@@ -112,23 +105,40 @@
       resultDialog.setAttribute('aria-hidden', 'true')
     }
 
-    // スタートボタン
+    // スタート押下時
     startButton.addEventListener('click', function () {
       startDialog.remove()
-      progress = 0
     })
 
+    // STOP押下時
     stopButton.addEventListener('click', function () {
       clearInterval(stop)
       // 結果モーダル出力
-      setTimeout(function () {
-        modal()
-      })
-    })
-
-    // 結果モーダル出力
-    setTimeout(function () {
       modal()
+
+      var stop = document.getElementById('stop')
+      var result = document.getElementById('result')
+      var startTime
+      var isStarted = true
+      startTime = Date.now()
+      this.className = 'pushed'
+      stop.className = ''
+      result.textContent = '0.000'
+      var elapsedTime
+      var diff
+      stop.addEventListener('click', function () {
+        isStarted = false
+        elapsedTime = (Date.now() - startTime) / 1000
+        result.textContent = elapsedTime.toFixed(3)
+        this.className = 'pushed'
+        start.className = ''
+        result.className = ''
+        diff = elapsedTime - 5.0
+        if (diff > -1.0 && diff < 1.0) {
+          result.className = 'perfect'
+        }
+      })
+
       if (diff > -0.5 && diff < 0.5) {
         resultTitle.innerText = '完璧'
         resultBody.innerHTML = '完璧なできです。'
@@ -142,47 +152,6 @@
         resultBody.innerHTML = 'もう一回チャレンジしてみよー'
         document.body.style.backgroundColor = '#ccffcc'
       }
-    }, 8000)
-
-    // タイマー
-    ;(function () {
-      'use strict'
-
-      var start = document.getElementById('start')
-      var stop = document.getElementById('stop')
-      var result = document.getElementById('result')
-      var startTime
-      var isStarted = false
-
-      start.addEventListener('click', function () {
-        if (isStarted === true) {
-          return
-        }
-        isStarted = true
-        startTime = Date.now()
-        this.className = 'pushed'
-        stop.className = ''
-        result.textContent = '0.000'
-        result.className = 'stanby'
-      })
-
-      stop.addEventListener('click', function () {
-        var elapsedTime
-
-        if (isStarted === false) {
-          return
-        }
-        isStarted = false
-        elapsedTime = (Date.now() - startTime) / 1000
-        result.textContent = elapsedTime.toFixed(3)
-        this.className = 'pushed'
-        start.className = ''
-        result.className = ''
-        diff = elapsedTime - 5.0
-        if (diff > -1.0 && diff < 1.0) {
-          result.className = 'perfect'
-        }
-      })
-    })()
+    })
   </script>
 </html>
