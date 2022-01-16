@@ -4,7 +4,6 @@
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="style.css" />
     <title>アポロ18Go!</title>
     <!-- Bootstrap CSS -->
     <link
@@ -19,22 +18,22 @@
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
+    <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
     <!-- ボタン -->
     <div class="container">
-      <div class="col-md-6">
-        <p class="text-center">中央</p>
-      </div>
       <div id="result" class="standby"></div>
       <div id="buttons">
         <div id="stop">Stop</div>
       </div>
     </div>
     <div class="content">
-      <figure><img class="img-fluid" src="./images/rocket.png" alt="ロケット" width="200" height="200" /></figure>
-      <div class="text-center">
+      <div class="rocket">
+        <img class="img-fluid" src="./images/rocket.png" alt="ロケット" />
+      </div>
+      <div class="text-center astronaut-container">
         <img
           id="astronaut"
           src="./images/astronaut.png"
@@ -46,10 +45,10 @@
       </div>
     </div>
     <div class="text-center">
-      <img id="fire" class="img-fluid-fire" alt="ロケット" width="100" height="100" />
+      <img id="fire" class="img-fluid fire" alt="fire" />
     </div>
     <div class="text-center">
-      <img id="people" class="img-fluid-people" alt="people" width="100%" height="100%" />
+      <img id="people" class="img-fluid-people" alt="people" />
     </div>
 
     <!-- Start用Modalはじまり -->
@@ -138,14 +137,14 @@
       diff = elapsedTime - 5.0
 
       if (diff > -0.5 && diff < 0.5) {
-        resultTitle.innerText = '完璧'
-        resultBody.innerHTML = '完璧です。'
+        resultTitle.innerText = 'ロケット発射成功！！！'
+        resultBody.innerHTML = 'アポロ18号は無事発射成功しました！'
       } else if (diff > -1.0 && diff < 1.0) {
-        resultTitle.innerText = '惜しい！！'
-        resultBody.innerHTML = 'もう少しです'
+        resultTitle.innerText = '打ち上げ失敗！！'
+        resultBody.innerHTML = '残念。ロケットは打ち上げに失敗してしまいました。'
       } else {
-        resultTitle.innerText = '全然です！'
-        resultBody.innerHTML = 'もう一回チャレンジしてみよー'
+        resultTitle.innerText = '大爆発！！'
+        resultBody.innerHTML = 'ロケットは爆発シてしまいました。もう一回チャレンジしてみてね'
       }
       // 結果モーダル出力
       modal()

@@ -34,9 +34,16 @@ html {
   font-size: 62.5%;
 }
 /* ここから */
-figure {
-  text-align: center;
-  margin: 20em 0 0 0;
+.rocket {
+  position: absolute;
+  top: 370px;
+  margin: 0 auto;
+  width: 20%;
+  left: calc(50% - 10%);
+}
+
+img {
+  width: 100%;
 }
 
 .container {
@@ -61,7 +68,7 @@ figure {
 }
 
 #stop {
-  float: right;
+  margin: 0 auto;
 }
 
 #start,
@@ -90,12 +97,30 @@ figure {
   box-shadow: 0 3px 0 #ccc;
 }
 
-.img-fluid-fire {
-  position: absolute;
-  top: 425px;
-  left: 565px;
+element.style {
   z-index: -1;
 }
 
-.img-fluid-people {
+.modal {
+  display: block;
+  position: absolute;
+  top: 45%;
+  left: calc(50% - 40%);
+  width: 80%;
+}
+
+.astronaut-container {
+  z-index: -1;
+  position: absolute;
+  top: 445px;
+  left: calc(50% - 6%);
+  width: 10%;
+}
+
+.fire {
+  width: 20%;
+  z-index: -1;
+  position: absolute;
+  left: calc(50% - 10%);
+  top: 73%;
 }
