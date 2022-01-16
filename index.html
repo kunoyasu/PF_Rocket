@@ -86,6 +86,10 @@
     const resultTitle = document.getElementById('resultModalLabel')
     const resultBody = document.getElementById('resultBody')
 
+    var result = document.getElementById('result')
+    var startTime
+
+    // ロード時にモーダル表示
     window.onload = () => {
       startDialog.ariaModal = 'true'
       startDialog.role = 'dialog'
@@ -107,6 +111,7 @@
 
     // スタート押下時
     startButton.addEventListener('click', function () {
+      startTime = Date.now()
       startDialog.remove()
     })
 
@@ -116,28 +121,12 @@
       // 結果モーダル出力
       modal()
 
-      var stop = document.getElementById('stop')
-      var result = document.getElementById('result')
-      var startTime
-      var isStarted = true
-      startTime = Date.now()
-      this.className = 'pushed'
-      stop.className = ''
-      result.textContent = '0.000'
       var elapsedTime
       var diff
-      stop.addEventListener('click', function () {
-        isStarted = false
-        elapsedTime = (Date.now() - startTime) / 1000
-        result.textContent = elapsedTime.toFixed(3)
-        this.className = 'pushed'
-        start.className = ''
-        result.className = ''
-        diff = elapsedTime - 5.0
-        if (diff > -1.0 && diff < 1.0) {
-          result.className = 'perfect'
-        }
-      })
+
+      elapsedTime = (Date.now() - startTime) / 1000
+      result.textContent = elapsedTime.toFixed(3)
+      diff = elapsedTime - 5.0
 
       if (diff > -0.5 && diff < 0.5) {
         resultTitle.innerText = '完璧'
