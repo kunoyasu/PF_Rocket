@@ -24,27 +24,25 @@
   <body>
     <!-- ボタン -->
     <div class="container">
-      <div id="target">5.000</div>
-      <div id="result" class="standby">0.000</div>
+      <div class="col-md-6">
+        <p class="text-center">中央</p>
+      </div>
+      <div id="result" class="standby"></div>
       <div id="buttons">
-        <!-- <div id="start">Start</div> -->
         <div id="stop">Stop</div>
       </div>
     </div>
     <div class="content">
-      <figure>
-        <img class="img-fluid" src="./images/rocket.png" alt="ロケット" width="200" height="200" />
-      </figure>
+      <figure><img class="img-fluid" src="./images/rocket.png" alt="ロケット" width="200" height="200" /></figure>
+    </div>
+    <div class="text-center">
+      <img class="img-fluid-fire" src="./images/fire1.png" alt="ロケット" width="100" height="100" />
+      <img class="img-fluid-fire" src="./images/fire2.png" alt="ロケット" width="100" height="100" />
+      <img class="img-fluid-fire" src="./images/fire3.png" alt="ロケット" width="100" height="120" />
     </div>
 
     <!-- Start用Modalはじまり -->
-    <div
-      class="modal fade modal-dialog modal-fullscreen-sm-down"
-      id="startModal"
-      tabindex="-1"
-      aria-labelledby="startModalLabel"
-      aria-hidden="true"
-    >
+    <div class="modal fade modal-dialog modal-fullscreen-sm-down" id="startModal">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -61,13 +59,7 @@
       </div>
     </div>
     <!-- ReStart用Modalはじまり -->
-    <div
-      class="modal fade modal-dialog modal-fullscreen-sm-down"
-      id="resultModal"
-      tabindex="-1"
-      aria-labelledby="resultModalLabel"
-      aria-hidden="true"
-    >
+    <div class="modal fade modal-dialog modal-fullscreen-sm-down" id="resultModal">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -131,23 +123,26 @@
       // 結果モーダル出力
       setTimeout(function () {
         modal()
-      }, 3000)
+      })
     })
 
     // 結果モーダル出力
     setTimeout(function () {
       modal()
-      if (diff > -1.0 && diff < 1.0) {
+      if (diff > -0.5 && diff < 0.5) {
         resultTitle.innerText = '完璧'
         resultBody.innerHTML = '完璧なできです。'
-      } else if (diff > -2.0 && diff < 2.0) {
-        resultTitle.innerText = '完璧！！'
-        resultBody.innerHTML = '惜しいです・'
+        document.body.style.backgroundColor = '#ccffcc'
+      } else if (diff > -1.0 && diff < 1.0) {
+        resultTitle.innerText = '惜しい！！'
+        resultBody.innerHTML = 'もう少しです'
+        document.body.style.backgroundColor = '#ccffcc'
       } else {
-        resultTitle.innerText = '全然やー'
-        resultBody.innerHTML = 'もう一回チャレンジしてみるべー'
+        resultTitle.innerText = '全然です！'
+        resultBody.innerHTML = 'もう一回チャレンジしてみよー'
+        document.body.style.backgroundColor = '#ccffcc'
       }
-    }, 11000)
+    }, 8000)
 
     // タイマー
     ;(function () {

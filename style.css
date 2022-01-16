@@ -89,3 +89,10 @@ figure {
   margin-top: 3px;
   box-shadow: 0 3px 0 #ccc;
 }
+
+.img-fluid-fire {
+  position: absolute;
+  top: 425px;
+  left: 565px;
+  z-index: -1;
+}
