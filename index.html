@@ -48,9 +48,10 @@
       <img id="fire" class="img-fluid fire" alt="fire" />
     </div>
     <div class="text-center">
-      <img id="people" class="img-fluid-people" alt="people" />
+      <img id="people" class="img-fluid people" alt="people" />
     </div>
 
+    <p id="fade" class="sample"></p>
     <!-- Start用Modalはじまり -->
     <div class="modal fade modal-dialog modal-fullscreen-sm-down" id="startModal">
       <div class="modal-dialog">
@@ -96,6 +97,7 @@
     const resultTitle = document.getElementById('resultModalLabel')
     const resultBody = document.getElementById('resultBody')
 
+    const fadeIn = document.getElementById('fade')
     var result = document.getElementById('result')
     var startTime
     var intervalId
@@ -129,6 +131,10 @@
     stopButton.addEventListener('click', function () {
       clearInterval(intervalId)
 
+      // 結果の浮き出し文字制御
+      fadeIn.innerText = '発射成功'
+      fadeIn.classList.add('blur')
+
       var elapsedTime
       var diff
 
@@ -137,17 +143,20 @@
       diff = elapsedTime - 5.0
 
       if (diff > -0.5 && diff < 0.5) {
+        fadeIn.innerText = '発射成功！！！'
         resultTitle.innerText = 'ロケット発射成功！！！'
         resultBody.innerHTML = 'アポロ18号は無事発射成功しました！'
       } else if (diff > -1.0 && diff < 1.0) {
+        fadeIn.innerText = '発射失敗'
         resultTitle.innerText = '打ち上げ失敗！！'
         resultBody.innerHTML = '残念。ロケットは打ち上げに失敗してしまいました。'
       } else {
+        fadeIn.innerText = '大爆発'
         resultTitle.innerText = '大爆発！！'
-        resultBody.innerHTML = 'ロケットは爆発シてしまいました。もう一回チャレンジしてみてね'
+        resultBody.innerHTML = 'ロケットは爆発してしまいました。もう一回チャレンジしてみてね'
       }
       // 結果モーダル出力
-      modal()
+      setTimeout(modal, 3000)
     })
 
     function picChange() {

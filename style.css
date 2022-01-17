@@ -112,15 +112,62 @@ element.style {
 .astronaut-container {
   z-index: -1;
   position: absolute;
-  top: 445px;
-  left: calc(50% - 6%);
-  width: 10%;
+  top: 411px;
+  left: calc(50% - 5%);
+  width: 8%;
 }
 
 .fire {
   width: 20%;
+  height: 30%;
   z-index: -1;
   position: absolute;
   left: calc(50% - 10%);
-  top: 73%;
+  top: 69%;
+}
+.people {
+  z-index: -2;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  top: 38%;
+}
+
+/* ふわっと出る結果エリア */
+#fade {
+  position: absolute;
+  font-size: 10em;
+  -webkit-text-stroke-color: whitesmoke;
+  -webkit-text-stroke-width: 3px;
+}
+
+.blur {
+  animation-name: blurAnime;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes blurAnime {
+  from {
+    filter: blur(10px);
+    transform: scale(1.02);
+    opacity: 0;
+  }
+
+  to {
+    filter: blur(0);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.sample {
+  left: 22%;
+  text-align: center;
+  line-height: 0.95em;
+  font-weight: bold;
+  color: #ff6f00;
+  text-shadow: 0 0.01em 0 #999, 0 0.02em 0 #888, 0 0.03em 0 #777, 0 0.04em 0 #666, 0 0.05em 0 #555, 0 0.06em 0 #444,
+    0 0.08em 0 #000;
 }
