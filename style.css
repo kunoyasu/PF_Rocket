@@ -71,12 +71,21 @@ img {
   margin: 0 auto;
 }
 
-#start,
-#stop {
+#start {
   cursor: pointer;
   font-size: 18px;
   width: 145px;
-  background: #eee;
+  background: #ff6f00;
+  height: 40px;
+  line-height: 40px;
+  box-shadow: 0 6px #ccc;
+}
+
+#stop {
+  cursor: pointer;
+  font-size: 25px;
+  width: 145px;
+  background: #ffffff;
   height: 40px;
   line-height: 40px;
   box-shadow: 0 6px #ccc;
@@ -104,7 +113,7 @@ element.style {
 .modal {
   display: block;
   position: absolute;
-  top: 45%;
+  top: 30%;
   left: calc(50% - 40%);
   width: 80%;
 }
@@ -170,4 +179,32 @@ element.style {
   color: #ff6f00;
   text-shadow: 0 0.01em 0 #999, 0 0.02em 0 #888, 0 0.03em 0 #777, 0 0.04em 0 #666, 0 0.05em 0 #555, 0 0.06em 0 #444,
     0 0.08em 0 #000;
+}
+
+.modal-footer {
+  justify-content: center;
+}
+
+.btn-circle-3d {
+  display: inline-block;
+  text-decoration: none;
+  background: #ff8181;
+  color: #fff;
+  width: 120px;
+  height: 120px;
+  line-height: 120px;
+  border-radius: 50%;
+  text-align: center;
+  font-weight: bold;
+  overflow: hidden;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+  border-bottom: solid 3px #bd6565;
+  transition: 0.4s;
+}
+
+.btn-circle-3d:active {
+  -webkit-transform: translateY(2px);
+  transform: translateY(2px);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
+  border-bottom: none;
 }
