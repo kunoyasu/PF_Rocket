@@ -1,0 +1,210 @@
+body {
+  background-image: url(images/background-photo.jpg);
+  /* 画像を常に天地左右の中央に配置 */
+  background-position: center center;
+  /* 画像をタイル状に繰り返し表示しない */
+  background-repeat: no-repeat;
+  /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
+  background-attachment: fixed;
+  /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
+  background-size: cover;
+  /* 背景画像が読み込まれる前に表示される背景のカラー */
+  background-color: #464646;
+}
+
+html body {
+  background-color: #ffff;
+  overflow: hidden;
+  font-family: 'Inconsolata', monospace;
+  min-width: 100vw;
+  height: 100vh;
+  margin: 0;
+}
+
+HTML CSS Result Skip Results Iframe *,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+/* ここから */
+.rocket {
+  position: absolute;
+  top: 370px;
+  margin: 0 auto;
+  width: 20%;
+  left: calc(50% - 10%);
+}
+
+img {
+  width: 100%;
+}
+
+.container {
+  font-family: 'Courier New', sans-serif;
+  width: 300px;
+  margin: 30px auto 0;
+  text-align: center;
+  font-weight: bold;
+}
+
+#target,
+#result {
+  font-size: 32px;
+  margin-bottom: 15px;
+  background: #ccc;
+  height: 60px;
+  line-height: 60px;
+}
+
+#start {
+  float: left;
+}
+
+#stop {
+  margin: 0 auto;
+}
+
+#start {
+  cursor: pointer;
+  font-size: 18px;
+  width: 145px;
+  background: #ff6f00;
+  height: 40px;
+  line-height: 40px;
+  box-shadow: 0 6px #ccc;
+}
+
+#stop {
+  cursor: pointer;
+  font-size: 25px;
+  width: 145px;
+  background: #ffffff;
+  height: 40px;
+  line-height: 40px;
+  box-shadow: 0 6px #ccc;
+}
+
+#result.standby {
+  opacity: 0.5;
+}
+
+#result.perfect {
+  background: #fa5858;
+  color: #fff;
+}
+
+#start.pushed,
+#stop.pushed {
+  margin-top: 3px;
+  box-shadow: 0 3px 0 #ccc;
+}
+
+element.style {
+  z-index: -1;
+}
+
+.modal {
+  display: block;
+  position: absolute;
+  top: 30%;
+  left: calc(50% - 40%);
+  width: 80%;
+}
+
+.astronaut-container {
+  z-index: -1;
+  position: absolute;
+  top: 411px;
+  left: calc(50% - 5%);
+  width: 8%;
+}
+
+.fire {
+  width: 20%;
+  height: 30%;
+  z-index: -1;
+  position: absolute;
+  left: calc(50% - 10%);
+  top: 69%;
+}
+.people {
+  z-index: -2;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  top: 38%;
+}
+
+/* ふわっと出る結果エリア */
+#fade {
+  position: absolute;
+  font-size: 10em;
+  -webkit-text-stroke-color: whitesmoke;
+  -webkit-text-stroke-width: 3px;
+}
+
+.blur {
+  animation-name: blurAnime;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes blurAnime {
+  from {
+    filter: blur(10px);
+    transform: scale(1.02);
+    opacity: 0;
+  }
+
+  to {
+    filter: blur(0);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.sample {
+  left: 22%;
+  text-align: center;
+  line-height: 0.95em;
+  font-weight: bold;
+  color: #ff6f00;
+  text-shadow: 0 0.01em 0 #999, 0 0.02em 0 #888, 0 0.03em 0 #777, 0 0.04em 0 #666, 0 0.05em 0 #555, 0 0.06em 0 #444,
+    0 0.08em 0 #000;
+}
+
+.modal-footer {
+  justify-content: center;
+}
+
+.btn-circle-3d {
+  display: inline-block;
+  text-decoration: none;
+  background: #ff8181;
+  color: #fff;
+  width: 120px;
+  height: 120px;
+  line-height: 120px;
+  border-radius: 50%;
+  text-align: center;
+  font-weight: bold;
+  overflow: hidden;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+  border-bottom: solid 3px #bd6565;
+  transition: 0.4s;
+}
+
+.btn-circle-3d:active {
+  -webkit-transform: translateY(2px);
+  transform: translateY(2px);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
+  border-bottom: none;
+}
