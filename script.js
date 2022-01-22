@@ -7,6 +7,7 @@ const startButton = document.getElementById('start')
 const resultDialog = document.getElementById('resultModal')
 const resultTitle = document.getElementById('resultModalLabel')
 const resultBody = document.getElementById('resultBody')
+const modalWrapper = document.getElementById('modal-wrapper')
 
 const fadeIn = document.getElementById('fade')
 var result = document.getElementById('result')
@@ -35,6 +36,8 @@ const modal = function () {
 startButton.addEventListener('click', function () {
   startTime = Date.now()
   startDialog.remove()
+  modalWrapper.style.visibility = 'hidden'
+
   picChange()
 })
 
@@ -48,6 +51,8 @@ stopButton.addEventListener('click', function () {
 
   var elapsedTime
   var diff
+
+  modalWrapper.style.visibility = 'visible'
 
   elapsedTime = (Date.now() - startTime) / 1000
   result.textContent = elapsedTime.toFixed(3)

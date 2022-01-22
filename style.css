@@ -1,15 +1,8 @@
-body {
-  background-image: url(images/background-photo.jpg);
-  /* 画像を常に天地左右の中央に配置 */
-  background-position: center center;
-  /* 画像をタイル状に繰り返し表示しない */
-  background-repeat: no-repeat;
-  /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
-  background-attachment: fixed;
-  /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
-  background-size: cover;
-  /* 背景画像が読み込まれる前に表示される背景のカラー */
-  background-color: #464646;
+.content {
+  position: relative;
+}
+
+.ground {
 }
 
 html body {
@@ -36,10 +29,9 @@ html {
 /* ここから */
 .rocket {
   position: absolute;
-  top: 370px;
-  margin: 0 auto;
-  width: 20%;
-  left: calc(50% - 10%);
+  top: 10vw;
+  width: 22vw;
+  left: calc(50% - 11vw);
 }
 
 img {
@@ -111,28 +103,24 @@ element.style {
 }
 
 .modal {
-  display: block;
-  position: absolute;
-  top: 30%;
-  left: calc(50% - 40%);
-  width: 80%;
+  max-width: 80%;
+  margin: 10px auto;
 }
 
 .astronaut-container {
   z-index: -1;
   position: absolute;
-  top: 411px;
-  left: calc(50% - 5%);
-  width: 8%;
+  top: 18vw;
+  left: calc(50% - 4vw);
+  width: 8vw;
 }
 
-.fire {
-  width: 20%;
-  height: 30%;
+.fire-center {
+  width: 19vw;
   z-index: -1;
   position: absolute;
-  left: calc(50% - 10%);
-  top: 69%;
+  left: calc(50% - 9.5vw);
+  top: 38vw;
 }
 .people {
   z-index: -2;
@@ -179,6 +167,19 @@ element.style {
   color: #ff6f00;
   text-shadow: 0 0.01em 0 #999, 0 0.02em 0 #888, 0 0.03em 0 #777, 0 0.04em 0 #666, 0 0.05em 0 #555, 0 0.06em 0 #444,
     0 0.08em 0 #000;
+}
+
+#modal-wrapper {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.modal {
+  width: 80%;
+  margin: 180px auto 0;
 }
 
 .modal-footer {
