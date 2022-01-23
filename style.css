@@ -3,6 +3,10 @@
 }
 
 .ground {
+  position: absolute;
+  top: 10vw;
+  width: 125vw;
+  z-index: -2;
 }
 
 html body {
@@ -29,9 +33,9 @@ html {
 /* ここから */
 .rocket {
   position: absolute;
-  top: 10vw;
-  width: 22vw;
-  left: calc(50% - 11vw);
+  top: 5vw;
+  width: 20vw;
+  left: calc(50% - 10vw);
 }
 
 img {
@@ -108,35 +112,34 @@ element.style {
 }
 
 .astronaut-container {
-  z-index: -1;
   position: absolute;
-  top: 18vw;
-  left: calc(50% - 4vw);
+  top: 13vw;
+  left: calc(50% - 5vw);
   width: 8vw;
+  z-index: -1;
 }
 
 .fire-center {
-  width: 19vw;
-  z-index: -1;
+  width: 10vw;
   position: absolute;
-  left: calc(50% - 9.5vw);
-  top: 38vw;
+  left: calc(50% - 5vw);
+  top: 32vw;
+  z-index: -1;
 }
 .people {
-  z-index: -2;
   position: absolute;
   left: 0;
-  top: 0;
-  width: 100%;
-  top: 38%;
+  width: 100vw;
+  top: -25vw;
+  z-index: -2;
 }
 
 /* ふわっと出る結果エリア */
 #fade {
   position: absolute;
-  font-size: 10em;
+  font-size: 10vw;
   -webkit-text-stroke-color: whitesmoke;
-  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-width: 2px;
 }
 
 .blur {
@@ -160,7 +163,7 @@ element.style {
 }
 
 .sample {
-  left: 22%;
+  left: calc(50% - 25vw);
   text-align: center;
   line-height: 0.95em;
   font-weight: bold;
