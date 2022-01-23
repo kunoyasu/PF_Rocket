@@ -3,6 +3,9 @@
 
 ・Rocket
 
+## URL
+https://zealous-heyrovsky-308820.netlify.app/
+
 ## サービス概要
 
 ・良いタイミングでボタンを押すと、ロケットが月に到着できるゲームアプリです。
