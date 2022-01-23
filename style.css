@@ -163,7 +163,7 @@ element.style {
 }
 
 .sample {
-  left: calc(50% - 25vw);
+  left: calc(50% - 20vw);
   text-align: center;
   line-height: 0.95em;
   font-weight: bold;

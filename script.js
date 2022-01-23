@@ -59,17 +59,20 @@ stopButton.addEventListener('click', function () {
   diff = elapsedTime - 5.0
 
   if (diff > -0.5 && diff < 0.5) {
-    fadeIn.innerText = '発射成功！'
-    resultTitle.innerText = 'ロケット発射成功！！！'
-    resultBody.innerHTML = 'アポロ18号は無事発射成功しました！！！'
+    fadeIn.innerText = '発射成功'
+    resultTitle.innerText = 'やったな！発射成功だ！！天才かよ！！'
+    resultBody.innerHTML =
+      '天才的な時間感覚の持ち主だな！君のおかげでロケットは発射成功したぞ！！よし、無限の世界へさぁ行くぞ！！'
   } else if (diff > -1.0 && diff < 1.0) {
-    fadeIn.innerText = '発射失敗！'
-    resultTitle.innerText = '打ち上げ失敗！！'
-    resultBody.innerHTML = '残念！！ロケットは打ち上げに失敗してしまいました〜〜〜'
+    fadeIn.innerText = '発射失敗'
+    resultTitle.innerText = '打ち上げ失敗だ！'
+    resultBody.innerHTML =
+      '残念！ロケットは打ち上げに失敗したぞ、またチャレンジしてくれよな！次こそは、絶っっ対に成功させような！！'
   } else {
-    fadeIn.innerText = '大爆発！！'
-    resultTitle.innerText = '大爆発！！'
-    resultBody.innerHTML = 'ロケットは大爆発してしまいました。もう一回チャレンジしてみてね〜〜〜'
+    fadeIn.innerText = '大爆発〜'
+    resultTitle.innerText = '大爆発してしまったぞ！'
+    resultBody.innerHTML =
+      'あれれ。そうか、、、寝てたのか。。うん、惜しくもないぞ！とりあえず、もう一回チャレンジしてみてくれよな！！'
   }
   // 結果モーダル出力
   setTimeout(modal, 3000)
