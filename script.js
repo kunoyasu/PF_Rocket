@@ -115,9 +115,9 @@ function tweet() {
     '!!\nきみの記録は' +
     this.elapsedTime +
     '秒だ！' +
-    '誤差は' +
+    '目標とのタイム差は' +
     Math.abs(diff).toFixed(3) +
-    '秒だ！また挑戦してくれよな！！'
+    '秒だったぞ！また挑戦してくれよな！！'
   const dataUrl = 'https://zealous-heyrovsky-308820.netlify.app/'
   const dataVia = 'kunoyasu'
   const dataHashtags = 'ロケット' + '&hashtags=個人開発' + '&hashtags=クソアプリ'
