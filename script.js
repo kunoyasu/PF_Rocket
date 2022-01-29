@@ -14,6 +14,9 @@ var result = document.getElementById('result')
 var startTime
 var intervalId
 
+var elapsedTime
+var diff
+
 // ロード時にモーダル表示
 window.onload = () => {
   document.getElementById('astronaut').style.visibility = 'hidden'
@@ -49,9 +52,6 @@ stopButton.addEventListener('click', function () {
   fadeIn.innerText = '発射成功'
   fadeIn.classList.add('blur')
 
-  var elapsedTime
-  var diff
-
   modalWrapper.style.visibility = 'visible'
 
   elapsedTime = (Date.now() - startTime) / 1000
@@ -60,14 +60,14 @@ stopButton.addEventListener('click', function () {
 
   if (diff > -0.5 && diff < 0.5) {
     fadeIn.innerText = '発射成功'
-    resultTitle.innerText = 'やったな！発射成功だ！！天才かよ！！'
+    resultTitle.innerText = 'やったな！発射成功だ！！挑戦してくれてありがとうな！！'
     resultBody.innerHTML =
-      '天才的な時間感覚の持ち主だな！君のおかげでロケットは発射成功したぞ！！よし、無限の世界へさぁ行くぞ！！'
+      '天才的な時間感覚の持ち主だな！君のおかげでロケットは発射成功したぞ！！またいつでも挑戦してくれよな！！'
   } else if (diff > -1.0 && diff < 1.0) {
     fadeIn.innerText = '発射失敗'
     resultTitle.innerText = '打ち上げ失敗だ！'
     resultBody.innerHTML =
-      '残念！ロケットは打ち上げに失敗したぞ、またチャレンジしてくれよな！次こそは、絶っっ対に成功させような！！'
+      '残念！ロケットは打ち上げに失敗したぞ、またチャレンジしてくれよな！次こそは、絶っ対に成功させような！！'
   } else {
     fadeIn.innerText = '大爆発〜'
     resultTitle.innerText = '大爆発してしまったぞ！'
@@ -106,4 +106,32 @@ function picChange() {
 // setIntervalメソッドの繰り返し処理を解除する関数
 function stopInterval() {
   clearInterval(intervalId)
+}
+
+function tweet() {
+  var resultTitle = fadeIn.innerText
+  const dataText =
+    resultTitle +
+    '!!\nきみの記録は' +
+    this.elapsedTime +
+    '秒だ！' +
+    '誤差は' +
+    Math.abs(diff).toFixed(3) +
+    '秒だ！また挑戦してくれよな！！'
+  const dataUrl = 'https://zealous-heyrovsky-308820.netlify.app/'
+  const dataVia = 'kunoyasu'
+  const dataHashtags = 'ロケット' + '&hashtags=個人開発' + '&hashtags=クソアプリ'
+
+  window.open(
+    'https://twitter.com/intent/tweet?&text=' +
+      dataText +
+      '%0a&' +
+      '&url=' +
+      dataUrl +
+      '%0a&' +
+      '&via=' +
+      dataVia +
+      '&hashtags=' +
+      dataHashtags
+  )
 }
