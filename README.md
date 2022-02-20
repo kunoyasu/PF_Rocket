@@ -12,6 +12,4 @@
 https://zealous-heyrovsky-308820.netlify.app/
 
 
-
-
-[![Image from Gyazo](https://i.gyazo.com/70518ec78c3ac91cb27de3c80108f2c8.gif)](https://gyazo.com/70518ec78c3ac91cb27de3c80108f2c8)
+<a href="https://gyazo.com/70518ec78c3ac91cb27de3c80108f2c8"><img src="https://i.gyazo.com/70518ec78c3ac91cb27de3c80108f2c8.gif" alt="Image from Gyazo" width="600"/></a>
